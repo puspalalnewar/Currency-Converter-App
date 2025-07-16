@@ -7,6 +7,11 @@ btn.addEventListener("click", () => {
   const to = document.getElementById("to").value;
   const test = from + to;
 
+  if(from === to) {
+    resultBox.innerText = "Invalid currency pair.";
+    return;
+  }
+
   convertCurrency(from, amount, test);
 });
 
@@ -29,10 +34,6 @@ async function convertCurrency(from, amount, test) {
 
 function calculateCurrency(data, amount, test) {
   const oneUnit = data.quotes[test];
-  if (!oneUnit) {
-    resultBox.innerText = "Invalid currency pair.";
-    return;
-  }
   const ans = oneUnit * parseFloat(amount);
   resultBox.innerText = `Converted: ${ans.toFixed(2)}`;
   console.log(ans.toFixed(2));
