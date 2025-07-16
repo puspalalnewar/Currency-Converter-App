@@ -7,7 +7,7 @@ btn.addEventListener("click", () => {
   const to = document.getElementById("to").value;
   const test = from + to;
 
-  if(from === to) {
+  if (from === to) {
     resultBox.innerText = "Invalid currency pair.";
     return;
   }
