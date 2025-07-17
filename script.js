@@ -1,5 +1,29 @@
+import { data } from "./currencies.js";
 const resultBox = document.getElementById("result");
 const btn = document.querySelector("button");
+const from = document.querySelector("#from");
+const to = document.querySelector("#to");
+
+for (let i = 0; i < data.length; i++) {
+  const optionFrom = document.createElement("option");
+  optionFrom.textContent = data[i].country_name;
+  if (data[i].currency === "USD") {
+    optionFrom.value = data[i].currency;
+    optionFrom.selected = true;
+  } else {
+    optionFrom.value = data[i].currency;
+  }
+  from.appendChild(optionFrom);
+  const optionTo = document.createElement("option");
+  optionTo.textContent = data[i].country_name;
+  if (data[i].currency === "INR") {
+    optionTo.value = data[i].currency;
+    optionTo.selected = true;
+  } else {
+    optionTo.value = data[i].currency;
+  }
+  to.appendChild(optionTo);
+}
 
 btn.addEventListener("click", () => {
   const amount = document.getElementById("amount").value;
